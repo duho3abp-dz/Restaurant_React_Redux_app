@@ -1,0 +1,63 @@
+.spinner {
+  margin: 0 auto;
+}
+@keyframes ldio-7eawzs8w1zp {
+   0% { transform: translate(26.52px,101.66px) scale(0); }
+  25% { transform: translate(26.52px,101.66px) scale(0); }
+  50% { transform: translate(26.52px,101.66px) scale(1); }
+  75% { transform: translate(101.66px,101.66px) scale(1); }
+ 100% { transform: translate(176.8px,101.66px) scale(1); }
+}
+@keyframes ldio-7eawzs8w1zp-r {
+   0% { transform: translate(176.8px,101.66px) scale(1); }
+ 100% { transform: translate(176.8px,101.66px) scale(0); }
+}
+@keyframes ldio-7eawzs8w1zp-c {
+   0% { background: #220b09 }
+  25% { background: #ff312d }
+  50% { background: #e88432 }
+  75% { background: #d34c31 }
+ 100% { background: #220b09 }
+}
+.ldio-7eawzs8w1zp div {
+  position: absolute;
+  width: 17.68px;
+  height: 17.68px;
+  border-radius: 50%;
+  transform: translate(101.66px,101.66px) scale(1);
+  background: #220b09;
+  animation: ldio-7eawzs8w1zp 1.6949152542372878s infinite cubic-bezier(0,0.5,0.5,1);
+}
+.ldio-7eawzs8w1zp div:nth-child(1) {
+  background: #d34c31;
+  transform: translate(176.8px,101.66px) scale(1);
+  animation: ldio-7eawzs8w1zp-r 0.42372881355932196s infinite cubic-bezier(0,0.5,0.5,1), ldio-7eawzs8w1zp-c 1.6949152542372878s infinite step-start;
+}.ldio-7eawzs8w1zp div:nth-child(2) {
+  animation-delay: -0.42372881355932196s;
+  background: #220b09;
+}.ldio-7eawzs8w1zp div:nth-child(3) {
+  animation-delay: -0.8474576271186439s;
+  background: #d34c31;
+}.ldio-7eawzs8w1zp div:nth-child(4) {
+  animation-delay: -1.2711864406779658s;
+  background: #e88432;
+}.ldio-7eawzs8w1zp div:nth-child(5) {
+  animation-delay: -1.6949152542372878s;
+  background: #ff312d;
+}
+.loadingio-spinner-ellipsis-627yn70psof {
+  width: 221px;
+  height: 221px;
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0);
+}
+.ldio-7eawzs8w1zp {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.ldio-7eawzs8w1zp div { box-sizing: content-box; }

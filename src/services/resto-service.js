@@ -1,12 +1,16 @@
 export default class restoService {
     state = {
-        url: 'http://localhost:3000/menu'
+        _apiBase: 'http://localhost:3000'
     }
-    
-    getMenuItems = async () => {
-        const data = await fetch(this.state.url);
+
+    getResource = async (url) => {
+        const data = await fetch(`${this.state._apiBase}${url}`);
         if (!data.ok) {throw new Error(`Server Error`);}
 
         return await data.json();
+    }
+
+    getMenuItems = () => {
+        return this.getResource('/menu');
     }
 }
