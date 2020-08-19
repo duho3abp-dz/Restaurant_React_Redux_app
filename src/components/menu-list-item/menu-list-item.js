@@ -6,7 +6,7 @@ import pizza from './pizza.svg';
 import salad from './salad.svg';
 import meat from './meat.svg';
 
-const MenuListItem = ({menuItem}) => {
+const MenuListItem = ({menuItem, addToCard}) => {
     const {id, title, price, url, category} = menuItem;
 
     let src;
@@ -26,7 +26,8 @@ const MenuListItem = ({menuItem}) => {
             <img className="menu__img" src={url} alt={title}></img>
             <div className="menu__category">Category: <span>{category}</span><img className="menu__icon" src={src} alt={category}></img></div>
             <div className="menu__price">Price: <span>{price}$</span></div>
-            <Link to={`/menu/${id}`} className="menu__btn">Add to cart</Link>
+            <Link to={`/menu/${id}`} className="menu__btn">Cart info</Link>
+            <a onClick={addToCard} className="menu__btn">Add to cart</a>
         </li>
     )
 }

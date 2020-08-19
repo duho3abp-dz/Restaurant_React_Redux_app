@@ -10,7 +10,6 @@ import Error from '../../error';
 import pizza from './pizza.svg';
 import salad from './salad.svg';
 import meat from './meat.svg';
-import solid from './shopping-cart-solid.svg';
 
 import './item-page.scss';
 
@@ -28,7 +27,7 @@ class ItemPage extends Component {
 
     render() {
         const item = this.props.menuItems.find(el => +el.id === +this.props.match.params.id)
-        const {title, price, url, category} = item;
+        const {id, title, price, url, category} = item;
         const {loading, error} = this.props;
 
 
@@ -50,7 +49,8 @@ class ItemPage extends Component {
                     <img className="card__img" src={url} alt={title}></img>
                     <div className="card__category">Category: <span>{category}</span><img className="card__icon" src={src} alt={category}></img></div>
                     <div className="card__price">Price: <span>{price}$</span></div>
-                    <Link to="/" className="card__btn">Back</Link><img className="card__icon" src={solid} alt="solid"></img>
+                    <Link to="/" className="card__btn">Back</Link>
+                    <a onClick={() => console.log(id)} className="card__btn">Add to cart</a>
                 </li>
             </div>
         )
@@ -62,11 +62,7 @@ class ItemPage extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    menuItems: state.menu,
-    loading: state.loading,
-    error: state.error
-});
+const mapStateToProps = ({menu, loading, error}) => ({menuItems: menu, loading, error});
 
 const mapDispatchToProps = {menuLoaded, menuRequested, menuError};
 
