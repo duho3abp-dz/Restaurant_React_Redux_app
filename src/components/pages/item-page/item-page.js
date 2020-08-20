@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import WithRestoService from '../../hoc';
-import {menuLoaded, menuRequested, menuError} from '../../../actions';
+import {menuLoaded, menuRequested, menuError, addedToCard} from '../../../actions';
 import Spinner from '../../spinner';
 import Error from '../../error';
 
@@ -28,7 +28,7 @@ class ItemPage extends Component {
     render() {
         const item = this.props.menuItems.find(el => +el.id === +this.props.match.params.id)
         const {id, title, price, url, category} = item;
-        const {loading, error} = this.props;
+        const {loading, error, addedToCard} = this.props;
 
 
         let src;
@@ -50,20 +50,19 @@ class ItemPage extends Component {
                     <div className="card__category">Category: <span>{category}</span><img className="card__icon" src={src} alt={category}></img></div>
                     <div className="card__price">Price: <span>{price}$</span></div>
                     <Link to="/" className="card__btn">Back</Link>
-                    <a onClick={() => console.log(id)} className="card__btn">Add to cart</a>
+                    <a onClick={() => addedToCard(id)} className="card__btn">Add to cart</a>
                 </li>
             </div>
         )
 
         const content = error ? <Error/> : loading ? <Spinner/> : itemBlock
         
-
         return content;
     }
 }
 
 const mapStateToProps = ({menu, loading, error}) => ({menuItems: menu, loading, error});
 
-const mapDispatchToProps = {menuLoaded, menuRequested, menuError};
+const mapDispatchToProps = {menuLoaded, menuRequested, menuError, addedToCard};
 
 export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(ItemPage));

@@ -9,7 +9,7 @@ import Background from './food-bg.jpg';
 const App = () => {
     return (
         <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">
-            <AppHeader total={50}/>
+            <AppHeader />
             <Route path="/" component={MainPage} exact />
             <Route path="/cart" component={CartPage} exact/>
             <Route path="/menu/:id" component={ItemPage} exact/>
