@@ -4,7 +4,8 @@ const initialState = {
     error: false,
     items: [],
     pieces: [],
-    total: 0
+    total: 0,
+    succsess: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -86,6 +87,21 @@ const reducer = (state = initialState, action) => {
                 pieces: [...corrPc],
                 total: state.total - summPrice
             } ;
+
+        case 'SUCCESS_MESS':
+            return {
+                ...state,
+                succsess:true
+            }
+
+        case 'CLEAR_IITEMS':
+            return {
+                ...state,
+                items: [],
+                pieces: [],
+                total: 0,
+                succsess:false
+            }
 
         default:
             return state;

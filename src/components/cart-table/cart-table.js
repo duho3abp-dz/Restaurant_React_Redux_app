@@ -1,14 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {deleteFromCard} from '../../actions';
+import WithRestoService from '../hoc';
+import {deleteFromCard, successMessage, clearItems} from '../../actions';
+import Success from '../success';
 
 import './cart-table.scss';
 
-const CartTable = ({items, deleteFromCard}) => {
-    return (
+const CartTable = ({items, succsess, deleteFromCard, RestoService, successMessage, clearItems}) => {
+    
+    const sentOrder = () => {
+        if (items.length > 0) {
+            RestoService.postOrder(items)
+                .then(res => {
+                    successMessage();
+                    setTimeout(clearItems, 3000);
+                });
+        }
+    }
+
+    const order = (
         <>
-            <div className="cart__title">Ваш заказ:</div>
+            <div className="cart__title">Your order:</div>
             <div className="cart__list">
                 {
                     items.map(item => {
@@ -25,12 +38,19 @@ const CartTable = ({items, deleteFromCard}) => {
                     })
                 }
             </div>
+            <div className="cart__btn">
+                <button onClick={() => sentOrder()} className="menu__btn">Send</button>
+            </div>
         </>
     );
+
+    const content = succsess ? <Success /> : order ;
+
+    return content;
 };
 
-const mapStateToProps = ({items}) => ({items});
+const mapStateToProps = ({items, succsess}) => ({items, succsess});
 
-const mapDispatchToProps = {deleteFromCard};
+const mapDispatchToProps = {deleteFromCard, successMessage, clearItems};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartTable);
+export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(CartTable));

@@ -3,3 +3,5 @@ export const menuRequested = () => ({type: 'MENU_REQUESTED'});
 export const menuError = () => ({type: 'MENU_ERROR'});
 export const addedToCard = (id) => ({type: 'ADD_ITEM', payload: id});
 export const deleteFromCard = (id) => ({type: 'DEL_ITEM', payload: id});
+export const successMessage = () => ({type: 'SUCCESS_MESS'});
+export const clearItems = () => ({type: 'CLEAR_IITEMS'});

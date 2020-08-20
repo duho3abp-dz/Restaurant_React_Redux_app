@@ -46,4 +46,8 @@
         border: 1px solid #fff;
         cursor: pointer;
     }
+    &__btn {
+        width: max-content;
+        margin: 20px auto;
+    }
 }
