@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project description
+
+This application is written using the React library and its Redux pattern as part of the tutorial: "The Complete JavaScript + React Course - From Scratch to Results."
+The application can:
+- Receive information from the server and dynamically typeset menu cards;
+- Open each card in a separate page;
+- Add a card to the cart;
+- Send an order to the server.
 
 ## Available Scripts
 
